@@ -1,8 +1,8 @@
     <div class="small-12 columns">
-      <label>  <%= t('manager.indicator_metrics.total_indicators.title') %> </label>
+      <label>  <%= t('supervisor.indicator_metrics.total_indicators.title') %> </label>
     </div>
     <div class="small-12 columns">
-      <label class="note"> <%= t('manager.indicator_metrics.update.total_indicators') %> </label>
+      <label class="note"> <%= t('supervisor.indicator_metrics.update.total_indicators') %> </label>
     </div>
     <% total_indicators = @indicator_metric.total_indicators %>
     <% SummaryType.all.each do |summary_type| %>
@@ -11,6 +11,6 @@
         <%= select_tag summary_type.item.description,
                    options_for_select(TotalIndicatorType.to_options,
                                       summary_type_selected(@indicator_metric.id, summary_type.id)),
-                   label: false, placeholder: t('manager.indicator_metrics.form.source') %>
+                   label: false, placeholder: t('supervisor.indicator_metrics.form.source') %>
     </div>
     <% end %>

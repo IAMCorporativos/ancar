@@ -6,10 +6,10 @@ feature 'Indicators Maintenance' do
   describe 'index of indicators' do
 
     it 'listado de indicadores' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       click_link 'Configurar Periodos'
 
@@ -72,10 +72,10 @@ feature 'Indicators Maintenance' do
       period.closed_at = Time.now + 1.months
       period.save
 
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       click_link 'Configurar Periodos'
       within("#period_1") do
@@ -100,10 +100,10 @@ feature 'Indicators Maintenance' do
       period.closed_at = Time.now - 1.day
       period.save
 
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
@@ -131,10 +131,10 @@ feature 'Indicators Maintenance' do
       period.closed_at = Time.now + 2.months
       period.save
 
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
@@ -162,10 +162,10 @@ feature 'Indicators Maintenance' do
       period.closed_at = Time.now + 1.months
       period.save
 
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       click_link 'Configurar Periodos'
       within("#period_1") do
@@ -204,10 +204,10 @@ feature 'Indicators Maintenance' do
       period.closed_at = Time.now + 1.months
       period.save
 
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       click_link 'Configurar Periodos'
       within('#period_1') do
@@ -228,7 +228,7 @@ feature 'Indicators Maintenance' do
       fill_in('indicator_order', :with => '99')
       click_button "Editar"
 
-      expect(page.current_path).to  eq(manager_indicators_path)
+      expect(page.current_path).to  eq(supervisor_indicators_path)
       expect(page).to have_content 'Indicadores'
       expect(page).to have_content '1. TRAMITACIÓN Y SEGUIMIENTO DE CONTRATOS Y CONVENIOS'
       expect(page).to have_content '1.1. TRAMITACIÓN Y SEGUIMIENTO DE CONTRATOS Y CONVENIOS DEPARTAMENTO JURIDICO'
@@ -241,10 +241,10 @@ feature 'Indicators Maintenance' do
       period.closed_at = Time.now + 1.months
       period.save
 
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       click_link 'Configurar Periodos'
       within('#period_1') do
@@ -267,7 +267,7 @@ feature 'Indicators Maintenance' do
 
       click_button "Editar"
 
-      expect(page.current_path).to  eq(manager_indicators_path)
+      expect(page.current_path).to  eq(supervisor_indicators_path)
       expect(page).to have_content 'Indicadores'
       expect(page).to have_content '1. TRAMITACIÓN Y SEGUIMIENTO DE CONTRATOS Y CONVENIOS'
       expect(page).to have_content '1.1. TRAMITACIÓN Y SEGUIMIENTO DE CONTRATOS Y CONVENIOS DEPARTAMENTO JURIDICO'
@@ -280,10 +280,10 @@ feature 'Indicators Maintenance' do
   describe 'Delete a indicator' do
 
     it "delete a indicator and all references " do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       click_link 'Configurar Periodos'
 

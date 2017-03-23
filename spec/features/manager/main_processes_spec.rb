@@ -4,10 +4,10 @@ feature 'MainProcesses Maintenance' do
 
   describe 'Index of main_procesess' do
     it 'show empty list of processes ' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
       MainProcess.destroy_all
-      visit manager_root_path
+      visit supervisor_root_path
 
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
@@ -20,10 +20,10 @@ feature 'MainProcesses Maintenance' do
     end
 
     it 'show list of processes ' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
@@ -37,10 +37,10 @@ feature 'MainProcesses Maintenance' do
     end
 
     it 'has correct buttons for opened period ' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
@@ -59,10 +59,10 @@ feature 'MainProcesses Maintenance' do
       period.closed_at = Time.now - 1.day
       period.save
 
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
@@ -81,10 +81,10 @@ feature 'MainProcesses Maintenance' do
   describe 'Create a new Process' do
 
     it "1 error creating a new process" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -100,10 +100,10 @@ feature 'MainProcesses Maintenance' do
     end
 
     it "more than 1 error creating a new process" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -118,10 +118,10 @@ feature 'MainProcesses Maintenance' do
     end
 
     it "create a new process selecting description" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -132,16 +132,16 @@ feature 'MainProcesses Maintenance' do
       find('#main_process_item_id').find(:xpath, 'option[2]').select_option
       click_button 'Crear'
 
-      expect(page).to have_content I18n.t("manager.main_processes.create.success")
+      expect(page).to have_content I18n.t("supervisor.main_processes.create.success")
       expect(page).to have_content '9. AUTORIZACIONES Y CONCESIONES'
 
     end
 
     it "create a new process writing description" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -153,15 +153,15 @@ feature 'MainProcesses Maintenance' do
 
       click_button 'Crear'
 
-      expect(page).to have_content I18n.t("manager.main_processes.create.success")
+      expect(page).to have_content I18n.t("supervisor.main_processes.create.success")
       expect(page).to have_content '9. Nueva descripción'
     end
 
     it "create a new process selecting and writing description" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -174,7 +174,7 @@ feature 'MainProcesses Maintenance' do
 
       click_button 'Crear'
 
-      expect(page).to have_content I18n.t("manager.main_processes.create.success")
+      expect(page).to have_content I18n.t("supervisor.main_processes.create.success")
       expect(page).to have_content '9. Nueva descripción'
     end
 
@@ -184,10 +184,10 @@ feature 'MainProcesses Maintenance' do
   describe 'Edit a Process' do
 
     it "1 error editing process" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -201,10 +201,10 @@ feature 'MainProcesses Maintenance' do
     end
 
     it "changing order in a process" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -221,10 +221,10 @@ feature 'MainProcesses Maintenance' do
     end
 
     it "changing description by select options" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -241,10 +241,10 @@ feature 'MainProcesses Maintenance' do
     end
 
     it "changing description by writing it" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -261,10 +261,10 @@ feature 'MainProcesses Maintenance' do
     end
 
     it "changing description by select and writing it together" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -286,10 +286,10 @@ feature 'MainProcesses Maintenance' do
   describe 'Delete a Process' do
 
     it "delete a process" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'

@@ -2,7 +2,7 @@
     <%= form_for :main_processes,  method: :get do |f| %>
       <div class="small-12 medium-4 column">
         <%= f.label :organization_type_id,
-            t("manager.main_processes.index.select_organization_type") %>
+            t("supervisor.main_processes.index.select_organization_type") %>
         <%= f.select :organization_type_id,
                       options_for_select(organization_type_options),
                       label: false,
@@ -12,7 +12,7 @@
       </div>
       <div class="small-12 medium-4 column">
         <%= f.label :period_id,
-            t("manager.main_processes.index.select_period") %>
+            t("supervisor.main_processes.index.select_period") %>
         <%= f.select :period_id,
                       options_for_select(period_select_options),
                       id: 'js-periods-select',
@@ -21,7 +21,7 @@
                       class: "js-submit-on-change" %>
       </div>
       <div class="small-12 medium-4 " >
-        <%= f.submit t("manager.main_processes.index.submit"), class: "button end float-bottom tiny hollow" %>
+        <%= f.submit t("supervisor.main_processes.index.submit"), class: "button end float-bottom tiny hollow" %>
       </div>
     <% end %>
   </div>

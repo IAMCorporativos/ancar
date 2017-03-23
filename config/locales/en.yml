@@ -118,13 +118,13 @@ en:
       process_text: Consulta y modificación de indicatores
       process_title: Procesos y subprocesos
     header:
-      administracion: Administrador
-      gestion: Supervisor
+      administration: Administración
+      management: Supervisión
       logo: Direccion General de Planificacion i18n
       open: Abierto
       open_data: Open data
       open_gov: Gobierno abierto
-      validacion: Validador
+      validation: Validación
   process_summary:
     no_indicators: No se han incluido indicadores para el resumen de este proceso
   shared:
@@ -143,6 +143,8 @@ en:
     print:
       print_button: Imprimir esta información
     target_blank_html: " (se abre en ventana nueva)"
+    top_links:
+      no_user: 'No se ha iniciado sesión: usuario no conectado'
   subnavigation_menu:
     entry_indicators: Procesos y subprocesos
     instructions: Instrucciones
@@ -174,7 +176,7 @@ en:
     text:
       verified: "Modificación verificada"
       not_verified: "Pendiente de verificación"
-  manager:
+  supervisor:
     main_processes:
       form:
         organization: "Organización"

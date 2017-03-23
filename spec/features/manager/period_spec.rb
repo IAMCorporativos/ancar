@@ -4,15 +4,15 @@ feature 'Periods Maintenance' do
 
   describe 'Index of periods' do
     it 'has correct buttons for opened period ' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
 
-      expect(page).to have_content I18n.t('manager.periods.index.entry_not_open_yet')
+      expect(page).to have_content I18n.t('supervisor.periods.index.entry_not_open_yet')
       expect(page).to have_link 'ver procesos'
       expect(page).to have_link 'editar'
       expect(page).to have_link 'eliminar'
@@ -25,15 +25,15 @@ feature 'Periods Maintenance' do
       period.closed_at = Time.now - 1.day
       period.save
 
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
 
-      expect(page).to have_content I18n.t('manager.periods.index.entry_closed')
+      expect(page).to have_content I18n.t('supervisor.periods.index.entry_closed')
       expect(page).to have_link 'ver procesos'
       expect(page).not_to have_link 'editar'
       expect(page).not_to have_link 'eliminar'
@@ -47,15 +47,15 @@ feature 'Periods Maintenance' do
       period.closed_at = Time.now + 2.months
       period.save
 
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
 
-      expect(page).to have_content I18n.t('manager.periods.index.entry_not_open_yet')
+      expect(page).to have_content I18n.t('supervisor.periods.index.entry_not_open_yet')
       expect(page).to have_link 'ver procesos'
       expect(page).to have_link 'editar'
       expect(page).to have_link 'eliminar'
@@ -67,10 +67,10 @@ feature 'Periods Maintenance' do
   describe 'Create a new Period' do
 
     it "create a new empty period" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
@@ -95,10 +95,10 @@ feature 'Periods Maintenance' do
     end
 
     it 'copy another period elements' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'Crear un periodo'
@@ -120,10 +120,10 @@ feature 'Periods Maintenance' do
     end
 
     it 'copy main_processes' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       click_link 'Configurar Periodos'
       click_link 'Crear un periodo'
 
@@ -152,10 +152,10 @@ feature 'Periods Maintenance' do
     end
 
     it 'copy sub_processes' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       click_link 'Configurar Periodos'
       click_link 'Crear un periodo'
 
@@ -188,10 +188,10 @@ feature 'Periods Maintenance' do
     end
 
     it 'copy indicators' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       click_link 'Configurar Periodos'
       click_link 'Crear un periodo'
 

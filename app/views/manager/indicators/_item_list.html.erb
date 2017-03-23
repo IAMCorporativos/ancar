@@ -2,9 +2,9 @@
 <br>
 <table>
   <tr>
-    <th><%= t("manager.indicators.item_list.indicator",
-              process_name: t("manager.process_name.singular.#{process_name(@sub_process.main_process.period, controller_name)}")).capitalize %></th>
-    <th class="text-left"><%= t("manager.indicators.item_list.metric") %></th>
+    <th><%= t("supervisor.indicators.item_list.indicator",
+              process_name: t("supervisor.process_name.singular.#{process_name(@sub_process.main_process.period, controller_name)}")).capitalize %></th>
+    <th class="text-left"><%= t("supervisor.indicators.item_list.metric") %></th>
     <th class="text-left"><%= t('.source') %></th>
     <th class="text-center" colspan="<%= SummaryType.all.count %>"><%= t('.totals') %></th>
     <th colspan="2"></th>
@@ -31,12 +31,12 @@
       </td>
       <% if indicator.modifiable? == true %>
       <td>
-        <%= link_to t('manager.indicator.index.indicator_metric.create'),
-                    new_manager_indicator_metric_path(indicator_id: indicator.id, task_id: params['task_id']),
+        <%= link_to t('supervisor.indicator.index.indicator_metric.create'),
+                    new_supervisor_indicator_metric_path(indicator_id: indicator.id, task_id: params['task_id']),
                     class: 'button tiny success hollow float-right' %>
       </td>
       <td>
-        <%= link_to edit_manager_indicator_path(indicator, sub_process_id: @sub_process.id),
+        <%= link_to edit_supervisor_indicator_path(indicator, sub_process_id: @sub_process.id),
                     id: "edit_#{indicator.id}",
                     class: 'button warning float-right tiny hollow' do %>
             <span class="icon-edit"></span>
@@ -45,7 +45,7 @@
       </td>
       <td>
         <% msg = delete_msg(indicator.class.name.pluralize.underscore, indicator.eliminable?, indicator.modifiable?, false ) %>
-        <%= link_to manager_indicator_path(indicator, sub_process_id: @sub_process.id), method: :delete,
+        <%= link_to supervisor_indicator_path(indicator, sub_process_id: @sub_process.id), method: :delete,
                     data: {confirm: msg},
                     id: "delete_#{indicator.id}",
                     class: 'button alert float-right tiny hollow' do %>
@@ -70,12 +70,12 @@
 
           <% SummaryType.all.each do |summary_type|%>
               <% mark = total_check(im, summary_type.id) %>
-              <td id="<%= dom_id(summary_type) %>" title="<%= "#{t("manager.indicators.total_indicator_type.#{mark}")}"%>"><%= mark%></td>
+              <td id="<%= dom_id(summary_type) %>" title="<%= "#{t("supervisor.indicators.total_indicator_type.#{mark}")}"%>"><%= mark%></td>
           <% end %>
 
         <td>
           <% if indicator.modifiable? == true %>
-            <%= link_to edit_manager_indicator_metric_path(im, indicator_id: indicator.id),
+            <%= link_to edit_supervisor_indicator_metric_path(im, indicator_id: indicator.id),
                         id: "edit_#{im.id}",
                         class: 'button warning float-right tiny hollow' do %>
                           <span class="icon-edit"></span>
@@ -85,8 +85,8 @@
         </td>
         <td>
           <% if indicator.modifiable? == true %>
-           <%= link_to manager_indicator_metric_path(im, indicator_id: indicator.id),
-                       method: :delete, data: {confirm: t('manager.indicator_metrics.delete')},
+           <%= link_to supervisor_indicator_metric_path(im, indicator_id: indicator.id),
+                       method: :delete, data: {confirm: t('supervisor.indicator_metrics.delete')},
                        id: "delete_#{im.id}",
                        class: 'button alert float-right tiny hollow' do %>
                          <span class="icon-delete"></span>

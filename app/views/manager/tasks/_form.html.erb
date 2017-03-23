@@ -1,12 +1,12 @@
 <%= render 'shared/errors', resource: @task %>
 
-<%= form_for [:manager, @task] do |f| %>
+<%= form_for [:validator, @task] do |f| %>
   <br>
   <%= f.hidden_field :sub_process_id, value: params[:sub_process_id]%>
 
   <div class="small-8 columns" >
-    <label for="item_description"><%= t('manager.tasks.form.description')%></label>
-    <input list="item_description" type="text" name="item_desc" value="<%= @task.item.description unless @task.id.nil? %>" placeholder="<%= t('manager.tasks.form.description')%>" ">
+    <label for="item_description"><%= t('supervisor.tasks.form.description')%></label>
+    <input list="item_description" type="text" name="item_desc" value="<%= @task.item.description unless @task.id.nil? %>" placeholder="<%= t('supervisor.tasks.form.description')%>" ">
     <datalist id="item_description"%>" >
       <% @items.each do |item| %>
         <% if @task.item_id == item[1] %>
@@ -20,9 +20,9 @@
 
   <div class="small-12 column" ></div>
   <div class="small-1 column">
-    <%= f.label :order, t('manager.tasks.form.order') %>
+    <%= f.label :order, t('supervisor.tasks.form.order') %>
     <%= f.text_field :order, label: false,
-        placeholder: t('manager.tasks.form.order')%>
+        placeholder: t('supervisor.tasks.form.order')%>
   </div>
 
   <div class="actions small-12 column">

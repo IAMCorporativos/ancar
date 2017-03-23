@@ -16,8 +16,8 @@
 
 <div class="expanded highlight padding">
   <% unless period.nil? %>
-      <h5> <%= t('manager.headers.organization') %> <%= period.organization_type.description %> </h5>
-      <h5> <%= t('manager.headers.period') %> <%= period.description %></h5>
+      <h5> <%= t('supervisor.headers.organization') %> <%= period.organization_type.description %> </h5>
+      <h5> <%= t('supervisor.headers.period') %> <%= period.description %></h5>
   <% end %>
   <% unless main_process.nil? %>
       <h5> <%= main_process.order %>. <%= main_process.item.description %> </h5>

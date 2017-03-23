@@ -1,18 +1,18 @@
-<%= form_for [:manager, @indicator_metric] do |f| %>
+<%= form_for [:validator, @indicator_metric] do |f| %>
   <br>
    <%= render 'shared/errors', resource: @indicator_metric %>
   <div class="small-8 columns" >
     <%= hidden_field_tag :indicator_id, params[:indicator_id] %>
 
-    <%= f.label :metric_id, t('manager.indicator_metrics.form.metric') %>
-    <%= f.select :metric_id, options_for_select(metric_items, @indicator_metric.metric_id), :prompt => t('manager.indicator_metrics.form.metric'),
-                   label: false, placeholder: t('manager.indicator_metrics.form.metric') %>
+    <%= f.label :metric_id, t('supervisor.indicator_metrics.form.metric') %>
+    <%= f.select :metric_id, options_for_select(metric_items, @indicator_metric.metric_id), :prompt => t('supervisor.indicator_metrics.form.metric'),
+                   label: false, placeholder: t('supervisor.indicator_metrics.form.metric') %>
   </div>
 
   <div class="small-8 columns" >
-    <%= label_tag :source_id, t('manager.indicator_metrics.form.source') %>
-    <%= select_tag :source_id, options_for_select(source_items, source_selected), :prompt => t('manager.indicator_metrics.form.source'),
-                   label: false, placeholder: t('manager.indicator_metrics.form.source') %>
+    <%= label_tag :source_id, t('supervisor.indicator_metrics.form.source') %>
+    <%= select_tag :source_id, options_for_select(source_items, source_selected), :prompt => t('supervisor.indicator_metrics.form.source'),
+                   label: false, placeholder: t('supervisor.indicator_metrics.form.source') %>
     <small class="error  error"><%= show_errors(@indicator_metric, :source_id)%></small>
   </div>
 
@@ -33,7 +33,7 @@
   <div  class="small-12 columns"> <br> </div>
 
   <div class="small-12 medium-4 columns">
-    <%= f.label :order, t('manager.indicators.form.order') %>
+    <%= f.label :order, t('supervisor.indicators.form.order') %>
     <%= f.text_field :order, label: false %>
   </div>
 

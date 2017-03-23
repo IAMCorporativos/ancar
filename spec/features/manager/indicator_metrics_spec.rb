@@ -9,10 +9,10 @@ require 'rails_helper'
         period.closed_at = Time.now + 1.months
         period.save
 
-        manager = create(:manager_global)
-        login_as_authenticated_user(manager)
+        supervisor = create(:supervisor_global)
+        login_as_authenticated_user(supervisor)
 
-        visit manager_root_path
+        visit supervisor_root_path
 
         click_link 'Configurar Periodos'
         within("#period_1") do
@@ -71,10 +71,10 @@ require 'rails_helper'
         period.closed_at = Time.now + 1.months
         period.save
 
-        manager = create(:manager_global)
-        login_as_authenticated_user(manager)
+        supervisor = create(:supervisor_global)
+        login_as_authenticated_user(supervisor)
 
-        visit manager_root_path
+        visit supervisor_root_path
 
         click_link 'Configurar Periodos'
         within('#period_1') do

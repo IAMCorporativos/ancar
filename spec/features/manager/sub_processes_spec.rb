@@ -4,10 +4,10 @@ feature 'SubProcesses Maintenance' do
 
   describe 'Index of sub_procesess' do
     it 'show empty list of sub_processes ' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
       SubProcess.destroy_all
-      visit manager_root_path
+      visit supervisor_root_path
 
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
@@ -22,10 +22,10 @@ feature 'SubProcesses Maintenance' do
     end
 
     it 'show list of sub_processes ' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
@@ -41,10 +41,10 @@ feature 'SubProcesses Maintenance' do
     end
 
     it 'has correct buttons for opened period ' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
@@ -65,10 +65,10 @@ feature 'SubProcesses Maintenance' do
       period.closed_at = Time.now - 1.day
       period.save
 
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
 
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
@@ -88,10 +88,10 @@ feature 'SubProcesses Maintenance' do
   describe 'Create a new Subprocess' do
 
     it '1 error creating a new subprocess' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -110,10 +110,10 @@ feature 'SubProcesses Maintenance' do
     end
 
     it 'more than 1 error creating a new subprocess' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -129,10 +129,10 @@ feature 'SubProcesses Maintenance' do
     end
 
     it 'create a new subprocess selecting description' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -146,16 +146,16 @@ feature 'SubProcesses Maintenance' do
 
       click_button 'Crear'
 
-      expect(page).to have_content I18n.t("manager.sub_processes.create.success")
+      expect(page).to have_content I18n.t("supervisor.sub_processes.create.success")
       expect(page).to have_content 'DEPARTAMENTO DE SERVICIOS TECNICOS'
       expect(page).to have_content '1. 3. TRAMITACIÓN Y SEGUIMIENTO DE CONTRATOS Y CONVENIOS DEPARTAMENTO TÉCNICO'
     end
 
     it 'create a new subprocess writing description' do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -169,7 +169,7 @@ feature 'SubProcesses Maintenance' do
 
       click_button 'Crear'
 
-      expect(page).to have_content I18n.t("manager.sub_processes.create.success")
+      expect(page).to have_content I18n.t("supervisor.sub_processes.create.success")
       expect(page).to have_content 'DEPARTAMENTO DE SERVICIOS TECNICOS'
       expect(page).to have_content '1. 3. Nueva descripción'
     end
@@ -178,10 +178,10 @@ feature 'SubProcesses Maintenance' do
   describe 'Edit a subprocess' do
 
     it "1 error editing subprocess" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -197,10 +197,10 @@ feature 'SubProcesses Maintenance' do
     end
 
     it "changing order in a subprocess" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -219,10 +219,10 @@ feature 'SubProcesses Maintenance' do
     end
 
     it "changing description in a subprocess" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'
@@ -245,10 +245,10 @@ feature 'SubProcesses Maintenance' do
   describe 'Delete a subrocess' do
 
     it "delete a subprocess" do
-      manager = create(:manager_global)
-      login_as_authenticated_user(manager)
+      supervisor = create(:supervisor_global)
+      login_as_authenticated_user(supervisor)
 
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
       click_link 'Configurar Periodos'
       click_link 'ver procesos'

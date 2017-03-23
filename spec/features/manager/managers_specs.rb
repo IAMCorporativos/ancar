@@ -1,27 +1,27 @@
 require 'rails_helper'
 
-feature 'manager Menu' do
+feature 'validator Menu' do
 
-  let(:user) { create(:user, :manager) }
+  let(:user) { create(:user, :validator) }
 
   describe 'dashboard' do
     it 'muestra instrucciones' do
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_content 'Configuración de procesos'
     end
   end
 
   describe 'opciones' do
     it 'muestra configurar Periodos' do
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_link 'Configurar Periodos'
     end
     it 'muestra Resumen por procesos' do
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_link 'Resumen por proceso'
     end
     it 'muestra Resumen por subproceso' do
-      visit manager_root_path
+      visit supervisor_root_path
       expect(page).to have_link 'Resumen por subproceso'
     end
   end

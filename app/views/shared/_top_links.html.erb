@@ -8,7 +8,7 @@
       <%= if current_user
             current_user.full_name
           else
-            "No se ha iniciado sesión: usuario no conectado"
+            t("shared.top_links.no_user")
           end  %>
        </div>
     </div>

@@ -15,19 +15,19 @@
         </td>
         <td>
           <div class="admin-list column">
-            <%= link_to  manager_indicators_path(commit: t("manager.tasks.index.submit"),
+            <%= link_to  supervisor_indicators_path(commit: t("supervisor.tasks.index.submit"),
                 task_id: task.id,
                 sub_process_id: task.sub_process_id),
               id: "index_#{task.id}",
               class: 'button small float-right hollow' do %>
               <span class="icon-tag"></span>
-                     <%= t("manager.tasks.index.indicators") %>
+                     <%= t("supervisor.tasks.index.indicators") %>
             <% end %>
           </div>
         </td>
         <td>
           <% if task.modifiable? == true %>
-            <%= link_to edit_manager_task_path(task, period_id: params[:period_id],
+            <%= link_to edit_supervisor_task_path(task, period_id: params[:period_id],
                   organization_type_id: params[:organization_type_id],
                   main_process_id: params[:main_process_id],
                   sub_process_id: params[:sub_process_id]),
@@ -42,7 +42,7 @@
           <% if task.modifiable? == true %>
             <% msg = delete_msg(task.class.name.pluralize.underscore, task.sub_process.main_process.period.eliminable?,
                                 task.sub_process.main_process.period.modifiable?, task.is_empty? ) %>
-            <%= link_to manager_task_path(task), method: :delete,
+            <%= link_to supervisor_task_path(task), method: :delete,
               data: {confirm: msg},
                 id: "delete_#{task.id}",
                 class: 'button small alert float-right tiny hollow' do %>
