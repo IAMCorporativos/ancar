@@ -2,6 +2,7 @@ class MainProcess < ActiveRecord::Base
   has_many :sub_processes, :dependent => :destroy
   has_many :tasks, through: :sub_processes, :dependent => :destroy
   has_many :indicators, through: :tasks, :dependent => :destroy
+  has_many :approvals, as: :subject
 
   belongs_to :organization
   belongs_to :period

@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170331064239) do
+ActiveRecord::Schema.define(version: 20170331095153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "adminpack"
+
+  create_table "approval", force: :cascade do |t|
+    t.integer "subject_id"
+    t.string  "subject_type"
+    t.string  "approved_by"
+    t.date    "approved_at"
+    t.text    "comments"
+  end
 
   create_table "assigned_employees", force: :cascade do |t|
     t.integer  "official_group_id"

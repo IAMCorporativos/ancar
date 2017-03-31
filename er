@@ -1,0 +1,19 @@
+=> #<User:0x00000005296418> {
+                 :id[0;37m => [0m[1;34m1[0m,
+              :login[0;37m => [0m[0;33m"PHN001"[0m,
+            :uweb_id[0;37m => [0m[1;34m1350[0m,
+               :name[0;37m => [0m[0;33m"PALOMA"[0m,
+            :surname[0;37m => [0m[0;33m"HERNANDEZ"[0m,
+     :second_surname[0;37m => [0m[0;33m"NAVARRO"[0m,
+    :document_number[0;37m => [0m[0;33m"50421035K"[0m,
+      :document_type[0;37m => [0m[1;31mnil[0m,
+              :pernr[0;37m => [0m[1;34m57146[0m,
+              :phone[0;37m => [0m[0;33m"915885686"[0m,
+  :official_position[0;37m => [0m[0;33m"ANALISTA-PROGRAMADOR/A"[0m,
+              :email[0;37m => [0m[0;33m"hernandezp@madrid.es"[0m,
+         :created_at[0;37m => [0m[0;32mMon, 04 Jul 2016 09:13:30 CEST +02:00[0m,
+         :updated_at[0;37m => [0m[0;32mMon, 18 Jul 2016 13:14:44 CEST +02:00[0m,
+               :role[0;37m => [0m[1;34m3[0m,
+     :inactivated_at[0;37m => [0m[1;31mnil[0m,
+    :organization_id[0;37m => [0m[1;31mnil[0m
+}
