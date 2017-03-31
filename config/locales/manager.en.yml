@@ -1,6 +1,6 @@
 ---
 en:
-  supervisor:
+  manaager:
     dashboard:
       index:
         title: Configuración de procesos

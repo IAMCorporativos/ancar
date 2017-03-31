@@ -45,7 +45,7 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :supervisor do
+  namespace :validator do
     root to: "dashboard#index"
     resources :users
     resources :approval
@@ -58,7 +58,7 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :validator do
+  namespace :supervisor do
     root to: "dashboard#index"
       resources :sources
       resources :process_summary

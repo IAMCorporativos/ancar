@@ -1,6 +1,6 @@
 <%= render 'shared/errors', resource: @task %>
 
-<%= form_for [:validator, @task] do |f| %>
+<%= form_for [:supervisor, @task] do |f| %>
   <br>
   <%= f.hidden_field :sub_process_id, value: params[:sub_process_id]%>
 
