@@ -21,7 +21,7 @@
   <% else %>
     <div class="small-7 columns panel">
         <% SummaryType.all.each do |summary_type| %>
-          <div div class="small-12 medium-4 columns end">
+          <div class="small-12 medium-4 columns end">
             <%= label_tag summary_type.item.description %>
             <%= select_tag summary_type.item.description,
                            options_for_select(total_indicator_type_items), :prompt =>  summary_type.item.description %>

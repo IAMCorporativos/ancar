@@ -29,7 +29,7 @@ module SupervisorHelper
 
   def source_selected
     is = IndicatorSource.find_by_indicator_metric_id(params[:id])
-    is.nil? ? " " : is.source_id
+    is.nil? ? ' ' : is.source_id
   end
 
   def metric_items
@@ -50,7 +50,7 @@ module SupervisorHelper
   end
 
   def total_check(indicator_metric_id, summary_type_id)
-    summary_type = SummaryType.find(summary_type_id)
+    summary_type = SummaryType.find_id(summary_type_id)
     total_indicators = summary_type.total_indicators.find_by_indicator_metric_id(indicator_metric_id)
     if total_indicators.nil?
       '-'
@@ -74,21 +74,21 @@ module SupervisorHelper
   def show_errors(object, field_name)
     if object.errors.any?
       unless object.errors.messages[field_name].blank?
-        object.errors.messages[field_name].join(", ")
+        object.errors.messages[field_name].join(', ')
       end
     end
   end
 
   def summary_type_selected(indicator_metric_id, summary_type_id)
-    summary_type = SummaryType.find(summary_type_id)
+    summary_type = SummaryType.find_id(summary_type_id)
     ti = summary_type.total_indicators.find_by_indicator_metric_id(indicator_metric_id)
     if ti.nil?
-      in_out = "-"
+      in_out = '-'
     elsif
       in_out = ti.in_out.nil? ? 'A' : ti.in_out
     end
-    TotalIndicatorType.find_by_acronym(in_out).id
-   end
+    TotalIndicatorType.acronym_id(in_out)
+  end
 
   private
     def namespace

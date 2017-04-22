@@ -1,9 +1,9 @@
 class Supervisor::TasksController < Supervisor::BaseController
 
   def index
-    if params[:commit] == t("supervisor.tasks.index.submit")
+    if params[:commit] == t('supervisor.tasks.index.submit')
       sub_process_id = params[:sub_process_id]
-      @tasks = Task.where("sub_process_id = ?", sub_process_id)
+      @tasks = Task.where('sub_process_id = ?', sub_process_id)
       @sub_process = SubProcess.find(sub_process_id)
 
       initialize_instance_vars
@@ -43,7 +43,7 @@ class Supervisor::TasksController < Supervisor::BaseController
     @task.order = params[:order].to_s.rjust(2, '0')  # => '05'
 
     if @task.save
-      redirect_to_index(t("supervisor.tasks.create.success"))
+      redirect_to_index(t('supervisor.tasks.create.success'))
     else
       render :new
     end
@@ -62,7 +62,7 @@ class Supervisor::TasksController < Supervisor::BaseController
       @task.order = params[:order].to_s.rjust(2, '0')  # => '05'
 
       if @task.save
-        redirect_to_index(t("supervisor.tasks.update.success"))
+        redirect_to_index(t('supervisor.tasks.update.success'))
       else
         render :edit
       end
@@ -75,9 +75,9 @@ class Supervisor::TasksController < Supervisor::BaseController
    @period = @main_process.period
 
    if @sub_process.destroy
-     msg = t("supervisor.tasks.destroy.success")
+     msg = t('supervisor.tasks.destroy.success')
    else
-     msg = t("supervisor.tasks.destroy.error")
+     msg = t('supervisor.tasks.destroy.error')
    end
      redirect_to_index(msg)
   end
@@ -96,7 +96,7 @@ private
   end
 
   def redirect_to_index(msg)
-   redirect_to supervisor_tasks_path(commit: t("supervisor.tasks.index.submit"),
+   redirect_to supervisor_tasks_path(commit: t('supervisor.tasks.index.submit'),
      sub_process_id: @task.sub_process_id,
      main_process_id: @task.sub_process.main_process_id,
      period_id: @period.id, organization_type_id: @period.organization_type_id),

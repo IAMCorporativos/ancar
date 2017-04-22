@@ -15,13 +15,13 @@
         </td>
         <td>
           <div class="admin-list column">
-            <%= link_to  supervisor_indicators_path(commit: t("supervisor.tasks.index.submit"),
+            <%= link_to  supervisor_indicators_path(commit: t('supervisor.tasks.index.submit'),
                 task_id: task.id,
                 sub_process_id: task.sub_process_id),
               id: "index_#{task.id}",
               class: 'button small float-right hollow' do %>
               <span class="icon-tag"></span>
-                     <%= t("supervisor.tasks.index.indicators") %>
+                     <%= t('supervisor.tasks.index.indicators') %>
             <% end %>
           </div>
         </td>
@@ -34,7 +34,7 @@
                 id: "edit_#{task.id}",
                 class: 'button small float-right tiny hollow' do %>
                 <span class="icon-edit"></span>
-                <%= t("actions.edit") %>
+                <%= t('actions.edit') %>
             <% end %>
           <% end %>
         </td>
@@ -47,7 +47,7 @@
                 id: "delete_#{task.id}",
                 class: 'button small alert float-right tiny hollow' do %>
                 <span class="icon-box"></span>
-                <%= t("actions.delete") %>
+                <%= t('actions.delete') %>
             <% end %>
           <% end %>
         </td>

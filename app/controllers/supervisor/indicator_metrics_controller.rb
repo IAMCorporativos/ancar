@@ -41,7 +41,7 @@ class Supervisor::IndicatorMetricsController < Supervisor::BaseController
     params.require(:indicator_metric).permit(:indicator_id, :metric_id, :order)
   end
 
-  def update_total_indicators_summary_types
+  def update_summary_types
     SummaryType.all.each do |summary_type|
       if params[summary_type.item.description].nil? || params[summary_type.item.description].empty?
         summary_type.total_indicators.find_by_indicator_metric_id(@indicator_metric.id).delete unless summary_type.total_indicators.find_by_indicator_metric_id(@indicator_metric.id).nil?
@@ -67,7 +67,7 @@ class Supervisor::IndicatorMetricsController < Supervisor::BaseController
         @indicator_metric.indicator_sources.destroy_all
         @indicator_source = @indicator_metric.indicator_sources.find_or_create_by!(source_id: params[:source_id])
         @indicator_source.indicator_id =  @indicator.id
-        update_total_indicators_summary_types
+        update_summary_types
         redirect_to_index(t('supervisor.indicator_metrics.create.success'))
       else
         if params[:source_id].nil? || params[:source_id].empty?

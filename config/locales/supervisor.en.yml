@@ -238,3 +238,17 @@ en:
         SubProcesses: subproceso
         MainProcesses: proceso
         CompetentialBlocks: bloque competencial
+    process_summary:
+      detail:
+        indicators: "INDICADORES"
+        metrics: "MÉTRICAS"
+        indicator: "INDICADOR"
+        district: "DISTRITO"
+        total: "TOTAL"
+        media: "MEDIA"
+        mediana: "MEDIANA"
+      main_process:
+        button:
+          detail: "Ver detalle"
+      process:
+        indicators: "Indicadores por proceso"

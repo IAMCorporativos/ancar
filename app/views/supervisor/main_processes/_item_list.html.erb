@@ -24,8 +24,8 @@
               id: "index_#{main_process.id}",
               class: 'button small float-right hollow' do %>
                 <span class="icon-tag"></span>
-                <%= t("supervisor.main_processes.index.sub_processes",
-                      process_name: t("supervisor.process_name.plural.#{process_name(@period, "SubProcesses")}")) %>
+                <%= t('supervisor.main_processes.index.sub_processes',
+                      process_name: t("supervisor.process_name.plural.#{process_name(@period, 'SubProcesses')}")) %>
           <% end %>
         </td>
         <td>
@@ -34,7 +34,7 @@
                 id: "edit_#{main_process.id}",
                 class: 'button small float-right hollow' do %>
                   <span class="icon-edit"></span>
-                  <%= t("actions.edit") %>
+                  <%= t('actions.edit') %>
                 <% end %>
           <% end %>
         </td>
@@ -45,7 +45,7 @@
                         method: :delete, data: {confirm: msg}, id: "delete_#{main_process.id}",
                         class: 'button small alert float-right hollow' do %>
                           <span class="icon-box"></span>
-                          <%= t("actions.delete") %>
+                          <%= t('actions.delete') %>
                         <% end %>
           <% end %>
         </td>

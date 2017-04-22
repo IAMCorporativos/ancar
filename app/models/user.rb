@@ -29,11 +29,11 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    name = self.name.nil? ? "" : self.name
-    surname = self.surname.nil? ? "" : self.surname
-    second_surname = self.second_surname.nil? ? "" : self.second_surname
+    name = self.name.nil? ? '' : self.name
+    surname = self.surname.nil? ? '' : self.surname
+    second_surname = self.second_surname.nil? ? '' : self.second_surname
 
-    name + " " + surname + " " + second_surname
+    name + ' ' + surname + ' ' + second_surname
   end
 
   def status

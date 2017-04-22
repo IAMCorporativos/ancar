@@ -95,3 +95,5 @@ en:
       remove_resource: "-"
       destroy_resource:
         error: "Error elimando recurso del rol"
+    shared:
+      in_works: "¡¡¡¡ Página en CONSTRUCCIÓN !!!!"

@@ -21,7 +21,7 @@ class Admin::RolesController < Admin::BaseController
       if @users
         format.js
       else
-        format.js { render "user_not_found" }
+        format.js { render 'user_not_found' }
       end
     end
   end

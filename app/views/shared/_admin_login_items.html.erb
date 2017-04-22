@@ -14,7 +14,7 @@
 
   <% if (current_user.has_role? :validator, :any) || (current_user.has_role? :validator) %>
     <li>
-      <%= link_to t('layouts.header.validation'), validator_root_path %>
+      <%= link_to t('layouts.header.validation'), root_path %>
     </li>
   <% end %>
 

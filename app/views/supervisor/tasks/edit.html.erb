@@ -1,8 +1,8 @@
-<%= render "shared/back" %>
+<%= render 'shared/back' %>
 
 <div class="row">
   <div class="small-12 column">
-    <h2><%= t("actions.edit") %></h2>
+    <h2><%= t('actions.edit') %></h2>
   </div>
   <div class="highlight small-12 column">
     <h5><%= @period.description %></h5>
@@ -11,6 +11,6 @@
     <h4><%= @task.order %>. <%= @task.item.description %></h4>
   </div>
   <div class="small-12 column">
-    <%= render "form" %>
+    <%= render 'form' %>
   </div>
 </div>

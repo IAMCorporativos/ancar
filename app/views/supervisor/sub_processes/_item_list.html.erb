@@ -18,13 +18,13 @@
         <%= sub_process.main_process.order %>. <%= sub_process.order %>. <%= sub_process.item.description %>
       </td>
       <td>
-        <%= link_to supervisor_indicators_path(commit: t("supervisor.indicators.index.submit"),
+        <%= link_to supervisor_indicators_path(commit: t('supervisor.indicators.index.submit'),
                                             sub_process_id: sub_process.id),
             id: "index_#{sub_process.id}",
             class: 'button small float-right hollow' do %>
               <span class="icon-tag"></span>
-              <%= t("supervisor.sub_processes.index.indicators",
-                    process_name: t("supervisor.process_name.plural.#{process_name(@main_process.period, "Indicators")}")).capitalize %>
+              <%= t('supervisor.sub_processes.index.indicators',
+                    process_name: t("supervisor.process_name.plural.#{process_name(@main_process.period, 'Indicators')}")).capitalize %>
         <% end %>
       </td>
       <td>
@@ -33,7 +33,7 @@
               id: "edit_#{sub_process.id}",
               class: 'button small float-right hollow' do %>
                 <span class="icon-edit"></span>
-                <%= t("actions.edit") %>
+                <%= t('actions.edit') %>
               <% end %>
           <% end %>
       </td>
@@ -46,7 +46,7 @@
                 id: "delete_#{sub_process.id}",
                 class: 'button small alert float-right hollow' do %>
                 <span class="icon-box"></span>
-                <%= t("actions.delete") %>
+                <%= t('actions.delete') %>
           <% end %>
         <% end %>
       </td>

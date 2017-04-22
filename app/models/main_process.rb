@@ -6,7 +6,7 @@ class MainProcess < ActiveRecord::Base
 
   belongs_to :organization
   belongs_to :period
-  belongs_to :item, -> { where item_type: "main_process" }
+  belongs_to :item, -> { where item_type: 'main_process' }
 
   validates :period_id, presence: true
   validates :item_id, presence: true
@@ -40,6 +40,6 @@ class MainProcess < ActiveRecord::Base
   end
 
   def organization_group
-    self.organization_id.nil? ? "GENÉRICOS" : Organization.find(organization_id).description
+    self.organization_id.nil? ? I18n.t('main_process.organization_group.generic'): Organization.find(organization_id).description
   end
 end

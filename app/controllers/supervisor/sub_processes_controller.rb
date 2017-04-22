@@ -3,7 +3,7 @@ class Supervisor::SubProcessesController < Supervisor::BaseController
   def index
     @main_process = MainProcess.find(params[:main_process_id])
     @sub_processes = @main_process.sub_processes.order(:unit_type_id, :order)
-    @unit_type_before = ""
+    @unit_type_before = ''
   end
 
   def show
@@ -23,10 +23,10 @@ class Supervisor::SubProcessesController < Supervisor::BaseController
     @sub_process.item = Item.find_or_create_by(item_type: 'sub_process', description: params[:item_description]) unless params[:item_description].empty?
     @main_process = @sub_process.main_process
     @sub_process.updated_by = current_user.login
-    it_task = Item.find_or_create_by(item_type: "task", description: "Tarea")
+    it_task = Item.find_or_create_by(item_type: 'task', description: 'Tarea')
     if @sub_process.save
       @sub_process.tasks.find_or_create_by(item_id: it_task.id)
-      redirect_to_index(t("supervisor.sub_processes.create.success"))
+      redirect_to_index(t('supervisor.sub_processes.create.success'))
     else
       render :new
     end
@@ -38,7 +38,7 @@ class Supervisor::SubProcessesController < Supervisor::BaseController
     @sub_process.item = Item.find_or_create_by(item_type: 'sub_process', description: params[:item_description]) unless params[:item_description].empty?
     @sub_process.updated_by = current_user.login
     if @sub_process.save
-      redirect_to_index(t("supervisor.sub_processes.update.success"))
+      redirect_to_index(t('supervisor.sub_processes.update.success'))
     else
       render :edit
     end
@@ -50,9 +50,9 @@ class Supervisor::SubProcessesController < Supervisor::BaseController
    @period = @main_process.period
 
    if @sub_process.destroy
-     msg = t("supervisor.sub_processes.destroy.success")
+     msg = t('supervisor.sub_processes.destroy.success')
    else
-     msg = t("supervisor.sub_processes.destroy.error")
+     msg = t('supervisor.sub_processes.destroy.error')
    end
     redirect_to_index(msg)
   end
@@ -63,7 +63,7 @@ class Supervisor::SubProcessesController < Supervisor::BaseController
     end
 
     def redirect_to_index(msg)
-     redirect_to supervisor_sub_processes_path(commit: t("supervisor.sub_processes.index.submit"),
+     redirect_to supervisor_sub_processes_path(commit: t('supervisor.sub_processes.index.submit'),
        main_process_id: @sub_process.main_process_id), notice: msg
    end
 
