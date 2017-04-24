@@ -112,7 +112,7 @@ class EntryIndicatorsController < ApplicationController
   end
 
   def entry_incompleted?
-    !(@entry_indicators_cumplimented && @employess_cumplimented)
+    !(@entry_indicators_cumplimented && @employees_cumplimented)
   end
 
   def changed_unit_staff?
@@ -143,7 +143,7 @@ class EntryIndicatorsController < ApplicationController
         end
       end
     end
-    return employess_cumplimented
+    return employees_cumplimented
   end
 
   def quantity_equal?(official_group_id, type, process_id, quantity)

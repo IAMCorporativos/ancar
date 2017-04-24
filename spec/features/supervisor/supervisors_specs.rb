@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-feature 'validator Menu' do
+feature 'Supervisor Menu' do
 
-  let(:user) { create(:user, :validator) }
+  let(:user) { create(:user, :supervisor) }
 
   describe 'dashboard' do
     it 'muestra instrucciones' do
