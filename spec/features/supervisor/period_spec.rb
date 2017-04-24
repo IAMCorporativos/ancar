@@ -142,8 +142,9 @@ feature 'Periods Maintenance' do
       within("#period_2") do
         click_link "ver procesos"
       end
-
-      expect(page).to have_selector('tr', count: 2)
+      save_and_open_page
+      expect(page).to have_selector('tr', count: 3)
+      expect(page).to have_content 'GENÉRICOS'
       expect(page).to have_content '1. TRAMITACIÓN Y SEGUIMIENTO DE CONTRATOS Y CONVENIOS'
       expect(page).to have_content '2. AUTORIZACIONES Y CONCESIONES'
       expect(page).to have_link('Editar', count: 2)
@@ -178,7 +179,7 @@ feature 'Periods Maintenance' do
       within("#main_process_3") do
         click_link "Ver subprocesos"
       end
-
+save_and_open_page
       expect(page).to have_selector('tr', count: 3)
       expect(page).to have_content 'DEPARTAMENTO DE SERVICIOS JURIDICOS'
       expect(page).to have_content '1. TRAMITACIÓN Y SEGUIMIENTO DE CONTRATOS Y CONVENIOS DEPARTAMENTO JURIDICO'
@@ -215,7 +216,6 @@ feature 'Periods Maintenance' do
         click_link "Ver subprocesos"
       end
 
-      save_and_open_page
       click_link("Ver indicadores", :match => :first)
       expect(page).to have_selector('tr', count: 5)
       expect(page).to have_content 'Organización: Secretarías Generales Técnicas'
