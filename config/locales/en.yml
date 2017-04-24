@@ -137,24 +137,6 @@ en:
       validation: Validación
   process_summary:
     no_indicators: No se han incluido indicadores para el resumen de este proceso
-  shared:
-    advanced_search:
-      author_type: Por categoría de autor
-      author_type_blank: Elige una categoría
-      date: Por fecha
-      date_placeholder: DD/MM/AAAA
-      date_range_blank: Elige una fecha
-      from: Desde
-      general: Con el texto
-      general_placeholder: Escribe el texto
-      search: Filtrar
-      title: Búsqueda avanzada
-      to: Hasta
-    print:
-      print_button: Imprimir esta información
-    target_blank_html: " (se abre en ventana nueva)"
-    top_links:
-      no_user: "No se ha iniciado sesión: usuario no conectado"
   subnavigation_menu:
     entry_indicators: Procesos y subprocesos
     instructions: Instrucciones
@@ -193,3 +175,9 @@ en:
   main_process:
     organization_group:
       generic: "GENÉRICOS"
+  shared:
+     print:
+       print_button: "Imprimir"
+     target_blank_html: " (se abre en ventana nueva)"
+     top_links:
+       no_user: "No hay usuario conectado"

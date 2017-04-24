@@ -56,7 +56,6 @@ es:
       update:
         title: Editar métrica
         total_indicators: "Seleccionar el/los tipo/s de procesos y el comportamiento"
-        success: La métrica se ha modificado correctamente
       form:
         metric: Métrica
         source: Fuente

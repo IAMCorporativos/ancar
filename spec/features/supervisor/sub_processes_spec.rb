@@ -109,7 +109,7 @@ feature 'SubProcesses Maintenance' do
 
     end
 
-    it 'more than 1 error creating a new subprocess' do
+    it 'more  than 1 error creating a new subprocess' do
       supervisor = create(:supervisor_global)
       login_as_authenticated_user(supervisor)
 

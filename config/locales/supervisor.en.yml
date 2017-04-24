@@ -28,7 +28,7 @@ en:
       index:
         empty: "No hay %{process_name} definidos"
         title: "%{process_name}"
-        create: "Incluir %{process_name}"
+        create: "Añadir %{process_name}"
         submit: submit
       new:
         title: "Crear %{process_name}"
@@ -56,7 +56,6 @@ en:
       update:
         title: Editar métrica
         total_indicators: "Seleccionar el/los tipo/s de procesos y el comportamiento"
-        success: La métrica se ha modificado correctamente
       form:
         metric: Métrica
         source: Fuente
@@ -85,7 +84,7 @@ en:
         success: El registro se ha actualizado correctamente.
       index:
         empty: "No hay %{process_name} para este periodo"
-        create_button: "Incluir %{process_name}"
+        create_button: "Añadir %{process_name}"
         title: "%{process_name}"
         sub_processes: "Ver %{process_name}"
         submit: submit
@@ -218,7 +217,7 @@ en:
     indicator:
       index:
         indicator_metric:
-          create: 'Incluir métrica'
+          create: 'Añadir métrica'
     indicators_metrics:
       create:
         title: la métrica
