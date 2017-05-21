@@ -53,6 +53,8 @@ es:
           ok: "Visto bueno"
           cancel: "Cancelar el VºBº"
           update: "Modificar observaciones"
+          pdf: "Abrir PDF"
+          download_pdf: "Generar PDF"
         cancel_change: "Cancelar ajuste"
         justificate: "Justificar ajuste"
         fix: "Corregir"

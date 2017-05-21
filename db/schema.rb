@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20170516115330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "adminpack"
 
   create_table "approvals", force: :cascade do |t|
     t.integer  "period_id"
@@ -23,9 +22,8 @@ ActiveRecord::Schema.define(version: 20170516115330) do
     t.text     "comment"
     t.string   "approval_by"
     t.date     "approval_at"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "official_possition"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "official_position"
   end
 

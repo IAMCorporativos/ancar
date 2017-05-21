@@ -7,9 +7,21 @@ class EntryIndicatorsController < ApplicationController
   before_action :initialize_instance_vars, only: [:index, :edit, :updates ]
 
   def index
-    if @period.main_processes.empty?
-      render :index, notice: t('entry_indicators.index.no_main_processes')
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render  pdf: "Ficha_#[@unit.description_sap]",
+        #        disposition:  'attachment',
+                :handlers => [:erb],
+                :formats => [:pdf],
+                :print_media_type => true
+      end
     end
+  end
+
+  def download_validation
+    pdf = WickedPdf.new.pdf_from_string(render_to_string("Mostrar texto en el pdf", layout: false))
+    send_data pdf, :filename => "Ficha.pdf", :type => "application/pdf", :disposition => "attachment"
   end
 
   def updates

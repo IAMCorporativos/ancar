@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :entry_indicators, only: [:edit, :index] do
     collection do
       post 'updates'
+      get :download_validation
     end
   end
 

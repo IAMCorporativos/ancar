@@ -17,9 +17,16 @@
              <% end %>
              <%= submit_tag(t('entry_indicators.form.button.approval.cancel'), class: 'button', name: 'approval') %>
            </div>
-        <% else %>
-           <p class="approval_comment"><%=  @approval.comment %> </p>
-        <% end %>
+      <% else %>
+            <p class="approval_comment"><%=  @approval.comment %> </p>
+      <% end %>
+        <%= link_to(t('entry_indicators.form.button.approval.download_pdf'),
+                    download_validation_entry_indicators_path(unit_id: @unit.id, period_id: @period.id,
+                                                             organization_id: @organization.id),  class: 'button') %>
+
+        <%= link_to(t('entry_indicators.form.button.approval.pdf'),
+                  entry_indicators_path(unit_id: @unit.id, period_id: @period.id,
+                                        organization_id: @organization.id, format: 'pdf'),  class: 'button') %>
       </div>
     <% else %>
       <% if current_user.has_role? :validator, @organization %>
