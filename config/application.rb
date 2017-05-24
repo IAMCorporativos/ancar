@@ -2,9 +2,6 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 require 'wicked_pdf'
 
-config.middleware.use "WickedPdf::Middleware", :print_media_type => true
-
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -47,6 +44,8 @@ module Ancar
       g.stylesheets false
       g.javascripts false
     end
+
+    config.middleware.use "WickedPdf::Middleware", :print_media_type => true
 
   end
 

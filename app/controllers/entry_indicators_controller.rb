@@ -4,24 +4,23 @@ class EntryIndicatorsController < ApplicationController
 
 
   before_action :require_user, only: [:index]
-  before_action :initialize_instance_vars, only: [:index, :edit, :updates ]
+  before_action :initialize_instance_vars, only: [:index, :edit, :updates, :download_validation]
 
   def index
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render  pdf: "Ficha_#[@unit.description_sap]",
-        #        disposition:  'attachment',
-                :handlers => [:erb],
-                :formats => [:pdf],
-                :print_media_type => true
-      end
-    end
+
   end
 
   def download_validation
-    pdf = WickedPdf.new.pdf_from_string(render_to_string("Mostrar texto en el pdf", layout: false))
-    send_data pdf, :filename => "Ficha.pdf", :type => "application/pdf", :disposition => "attachment"
+  #  pdf = WickedPdf.new.pdf_from_string(render_to_string("entry_indicators/index", layout: false))
+    body_html   = render_to_string("entry_indicators/index.pdf.erb" )
+    pdf = WickedPdf.new.pdf_from_string(
+        body_html,
+        margin: { bottom: 20, top: 30 },
+ )
+    send_data pdf, :filename => "Ficha_attachment.pdf",
+                   :type => "application/pdf",
+  #                 :disposition => "attachment",
+                   layouts: "layouts/pdf.html.erb"
   end
 
   def updates
