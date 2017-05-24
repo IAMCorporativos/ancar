@@ -19,7 +19,7 @@ class EntryIndicatorsController < ApplicationController
  )
     send_data pdf, :filename => "Ficha_attachment.pdf",
                    :type => "application/pdf",
-  #                 :disposition => "attachment",
+                   :disposition => "inline",
                    layouts: "layouts/pdf.html.erb"
   end
 
