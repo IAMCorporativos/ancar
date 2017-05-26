@@ -1,12 +1,5 @@
 <%= form_tag(updates_entry_indicators_path, method: 'post', name: 'entryIndicatorsForm', id: 'entryIndicatorsForm') do %>
-    <%= hidden_field_tag(:unit_id, @unit.id) %>
-    <%= hidden_field_tag(:period_id, @period.id) %>
-    <%= hidden_field_tag(:organization_id, @organization.id) %>
-    <% if @period.open_entry? && (can? :updates, @organization) %>
-        <%= hidden_field_tag(:cancel_change) %>
-        <%= hidden_field_tag(:open_change)%>
-  <% end %>
-  <%= render 'approval' %>
+  <%= render 'entry_indicators/pdf/approval' %>
   <div class="row">
     <br>
     <div class="columns medium-6 small-12">
@@ -38,7 +31,7 @@
                       <strong> <%= indicator.item.description %></strong>
                   <% else %>
                       <br>
-                      <div class="moderation-description">
+                      <div class="pdf-description">
                         <%= simple_format (indicator.description) %>
                       </div>
                   <% end %>

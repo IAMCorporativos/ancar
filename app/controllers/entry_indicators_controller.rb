@@ -12,7 +12,7 @@ class EntryIndicatorsController < ApplicationController
 
   def download_validation
   #  pdf = WickedPdf.new.pdf_from_string(render_to_string("entry_indicators/index", layout: false))
-    body_html   = render_to_string("entry_indicators/index.pdf.erb" )
+    body_html   = render_to_string("entry_indicators/index.pdf" )
     pdf = WickedPdf.new.pdf_from_string(
         body_html,
         margin: { bottom: 20, top: 30 },

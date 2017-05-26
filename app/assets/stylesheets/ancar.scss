@@ -443,3 +443,48 @@ ul.error-detail {
 .reveal-show {
   display: inline;
 }
+// 06. PDF
+
+.pdf-description {
+  max-height: rem-calc(65);
+  overflow: hidden;
+  max-width: rem-calc(700);
+
+  p{
+    font-size: $small-font-size;
+  }
+}
+
+.pdf-approval {
+    border: 1px solid #1a1a1a;
+    width: 100%;
+    padding-top: rem-calc(10) ;
+}
+
+.pdf-approval-data {
+  font-size: 12px;
+  padding-left: 20px;
+
+  .pdf-approval-name {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+.pdf-approved {
+  text-decoration: underline;
+  text-align: center;
+  font-size: 14px;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.pdf-approval-comment-title {
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+.pdf-approval-comment {
+  font-size: 12px;
+  padding-left: 25px;
+}
