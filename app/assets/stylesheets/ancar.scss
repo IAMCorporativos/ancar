@@ -472,7 +472,7 @@ ul.error-detail {
 }
 .pdf-approved {
   text-decoration: underline;
-  text-align: center;
+  text-align: left;
   font-size: 14px;
   font-style: oblique;
   font-weight: bold;
@@ -487,4 +487,32 @@ ul.error-detail {
 .pdf-approval-comment {
   font-size: 12px;
   padding-left: 25px;
+}
+
+.abstract {
+  .table {
+
+  }
+
+  td {
+    font-size: 10px;
+    padding-left: 10px;
+  }
+
+  th {
+    font-size: 10px;
+    text-align: left;
+    width: 9%;
+  }
+
+  .validated-abstract {
+    width: 60%;
+  }
+
+  .unit {
+    margin-top: 50px;
+  }
+  table, tr, td, th, tbody, thead, tfoot {
+    page-break-inside: avoid !important;
+  }
 }

@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <title><%= content_for?(:title) ? yield(:title) : setting['app_name']%></title>
   <%= wicked_pdf_stylesheet_link_tag 'application' -%>
-
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -16,6 +15,13 @@
           <h4><%= @period.description %> </h4>
           <h4> <%= @organization.description %> </h4>
         </div>
+        <% if @units.count > 1 %>
+          <div id="unit" class="unit text-center small-12 columns">
+            <h3>
+              <%= @unit.description_sap %>
+            </h3>
+          </div>
+        <% end %>
         <%= render "entry_indicators/pdf/form" %>
     <% end %>
   </main>
