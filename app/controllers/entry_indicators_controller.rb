@@ -24,7 +24,7 @@ class EntryIndicatorsController < ApplicationController
             outline_depth: 3 },
         footer: {
             margin: {top: 30 },
-            left:   "\n#{@period.description}\n#{@unit.description_sap}",
+            left:   "",
             right: 'Pág. [page] / [topage]',
             center:  "" ,
             font_name: 'Arial',

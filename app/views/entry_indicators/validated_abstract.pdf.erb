@@ -31,14 +31,14 @@
       </thead>
       <tbody>
         <% @period.main_processes.order(:order).each do |mp| %>
-          <tr>
-            <th><%= mp.order %> . <%= mp.item.description %></th>
-            <% official_groups.each do |gr| %>
-              <td>
-                <%= format_number(display_staff('MainProcess', mp, @unit, @period, gr.id, 4)) %>
-              </td>
-            <% end %>
-          </tr>
+          <% if mp.show_in_entry(@unit) %>
+            <tr>
+              <th><%= mp.order %> . <%= mp.item.description %></th>
+              <% official_groups.each do |gr| %>
+                <td> <%= format_number(display_staff('MainProcess', mp, @unit, @period, gr.id, 4)) %>  </td>
+              <% end %>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
       <tfoot>

@@ -41,6 +41,8 @@ es:
       indicator:
         Indicators: Indicador
         Tasks: Tarea/acción
+        sub_process:
+          total: "Total Subprocesos"
       main_process:
         MainProcesses: Procesos
         CompetentialBlocks: Bloques competenciales

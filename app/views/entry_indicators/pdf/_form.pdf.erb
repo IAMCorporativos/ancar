@@ -24,34 +24,44 @@
             </tr>
           </thead>
           <tbody>
-            <% sub_process.indicators.each do |indicator| %>
+          <tr>
+            <td clase="pdf-total-subprocess"> <%= t("entry_indicators.form.indicator.sub_process.total") %></td>
+            <% official_groups.each do |gr| %>
+                <td class=" staff-td">  <strong><%=  format_number(display_staff('SubProcess', sub_process, @unit, @period, gr.id, pos_amount('SubProcess'))) %></strong>  </td>
+            <% end %>
+          </tr>
+          <% sub_process.indicators.each do |indicator| %>
               <tr class="indicator-row">
-                <td class="indicator-description" id="<%= "indicator_col_#{indicator.id}" %>">
+                <td class="pdf-indicator-description" id="<%= "indicator_col_#{indicator.id}" %>">
                   <% if indicator.description.nil? %>
                       <strong> <%= indicator.item.description %></strong>
                   <% else %>
                       <br>
-                      <div class="pdf-description">
+                      <div>
                         <%= simple_format (indicator.description) %>
                       </div>
                   <% end %>
                 </td>
                 <%= render 'staff_indicator', process: indicator, unit: @unit, period: @period, type: 'data' %>
               </tr>
+              <!--
               <tr>
                 <td colspan="6">
-                  <%= render 'table_indicator_metric', indicator: indicator, period: @period %>
+                  <!--%= render 'table_indicator_metric', indicator: indicator, period: @period %>
                 </td>
               </tr>
+              -->
             <% end %>
           </tbody>
         </table>
+<!--
         <div class="row">
           <div class="small-12 medium-6 columns"></div>
           <div class="columns medium-6 small-12">
-            <%= render 'staff', of: 'SubProcess', process: sub_process, unit: @unit, period: @period, type: 'all'   %>
+            <!%= render 'staff', of: 'SubProcess', process: sub_process, unit: @unit, period: @period, type: 'all'   %>
           </div>
         </div>
+-->
       <% end %>
     <% end %>
   <% end %>

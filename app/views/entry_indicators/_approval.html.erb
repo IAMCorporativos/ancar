@@ -23,9 +23,6 @@
         <%= link_to(t('entry_indicators.form.button.approval.download_abstract'),
                     validated_abstract_entry_indicators_path(unit_id: @unit.id, period_id: @period.id,
                                                              organization_id: @organization.id),  class: 'button') %>
-        <%= link_to(t('entry_indicators.form.button.approval.download_pdf'),
-                    download_validation_entry_indicators_path(unit_id: @unit.id, period_id: @period.id,
-                                                              organization_id: @organization.id),  class: 'button') %>
       </div>
     <% else %>
       <% if (current_user.has_role? :validator, @organization)  & @period.open_entry? %>
