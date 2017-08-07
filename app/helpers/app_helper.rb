@@ -121,6 +121,10 @@ module AppHelper
     end
   end
 
+  def source_imported?(indicator_metric, period)
+    indicator_metric.indicator_sources.map{ |i_s|  return i_s.source.fixed.present? }
+  end
+
   def period_status_text(period)
     period.open_entry? ? (period.description) + ' (' + t('status.open') +')' : (period.description) + ' (' + t('status.close') +')'
   end
