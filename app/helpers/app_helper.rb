@@ -63,22 +63,17 @@ module AppHelper
     description = "#{Indicator.description(entry_error[0])}=> cantidad: #{entry_error[1][0].to_f} puesto asignado #{entry_error[1][1].to_f}"
   end
 
-  def in_out_error(errors_in_out_stock)
-      description = "\r\n"
-      errors_in_out_stock.each do |e|
-        description  += "#{SubProcess.description(e[0])}-  salida: #{e[1][0]} entrada: #{e[1][1]} stock: #{e[1][2]} \r\n"
-      end
-      return description
+  def in_out_error(error)
+    "#{SubProcess.description(error[0])}-  salida: #{error[1][0]} entrada: #{error[1][1]} stock: #{error[1][2]} "
+  end
 
-    end
+  def pos_amount(of)
+    (of == 'SubProcess' || of == 'Indicator' ) ? 3 : 4
+  end
 
-    def pos_amount(of)
-      (of == 'SubProcess' || of == 'Indicator' ) ? 3 : 4
-    end
-
-    def official_groups
-      @official_groups ||=  OfficialGroup.all
-    end
+  def official_groups
+    @official_groups ||=  OfficialGroup.all
+  end
 
   def user_type(current_user)
     if current_user.has_role? :interlocutor, :any
