@@ -186,3 +186,5 @@ es:
             title: Permitir menos plantilla que la asignada
             SGT: Secretarias Generales Técnicas
             JD: Juntas de Distrito
+        general:
+          title: "Parámetros globales"

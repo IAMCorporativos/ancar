@@ -132,12 +132,8 @@ module AppHelper
     end
   end
 
-  def source_imported?(indicator_metric, period)
-    indicator_metric.indicator_sources.map{ |i_s|  return i_s.source.fixed.present? }
-  end
-
   def period_status_text(period)
-    period.open_entry? ? (period.description) + " \n(" + t('status.open') + ' de ' + (l period.opened_at) + ' a ' + (l period.ended_at) + ')' : (period.description) + ' (' + t('status.close') +')'
+    period.open_entry? ? (period.description) + " \n(" + t('status.open') + ' de ' + (l period.opened_at) + ' a ' + (l period.closed_at) + ')' : (period.description) + ' (' + t('status.close') +')'
   end
 
   def link_doc_target(format)
@@ -146,6 +142,7 @@ module AppHelper
 
   def source_imported?(indicator_metric)
     indicator_metric.indicator_sources.map{ |is| return is.source.fixed? }
+    false
   end
 
 end
