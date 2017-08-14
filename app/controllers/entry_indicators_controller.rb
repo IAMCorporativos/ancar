@@ -169,7 +169,7 @@ class EntryIndicatorsController < ApplicationController
             ei.updated_by = current_user.login
             ei.save
           end
-         end
+        end
       end
     end
     return @entry_indicators_cumplimented

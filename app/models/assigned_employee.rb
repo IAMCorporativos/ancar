@@ -26,8 +26,7 @@ class AssignedEmployee < ActiveRecord::Base
       if AssignedEmployeesChange.unit_justified(unit.id, period.id)
         staff_real= self.staff_from_unit_justificated(unit, period, official_group)
         unless staff_real == staff_indicator
-          if #unit.organization.organization_type.acronym == Setting['no_validation_lower_staff']
-              Setting.find_by_key('validations.lower_staff.JD').enabled?
+          unless Setting.find_by_key('validations.lower_staff.JD').enabled?
             if staff_real < staff_indicator
               message << official_group.description
             end
@@ -36,10 +35,9 @@ class AssignedEmployee < ActiveRecord::Base
           end
         end
       else
-       staff_unit = self.staff_from_unit(unit, period, official_group)
+        staff_unit = self.staff_from_unit(unit, period, official_group)
         unless staff_unit == staff_indicator
-          if #unit.organization.organization_type.acronym == Setting['no_validation_lower_staff']
-            Setting.find_by_key('validations.lower_staff.JD').enabled?
+          unless Setting.find_by_key('validations.lower_staff.JD').enabled?
             if staff_unit < staff_indicator
               message << official_group.description
             end
