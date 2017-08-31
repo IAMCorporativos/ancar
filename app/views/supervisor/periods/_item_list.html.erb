@@ -34,7 +34,7 @@
               period_id: period.id, organization_type_id: period.organization_type_id),
               id: "index_#{period.id}",
               class: 'button float-right tiny hollow' do %>
-                <span class="icon-tag"></span>
+                <span class="icon-folder-open-o"></span>
                 <%= t('supervisor.periods.index.button.processes',
                       process_name: t("supervisor.process_name.plural.#{process_name(period, 'main_processes')}")) %>
               <% end %>

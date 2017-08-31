@@ -49,7 +49,7 @@
                     data: {confirm: msg},
                     id: "delete_#{indicator.id}",
                     class: 'button alert float-right tiny hollow' do %>
-            <span class="icon-delete"></span>
+            <span class="icon-trash-o"></span>
             <%= t('actions.delete') %>
         <% end %>
       </td>
@@ -89,7 +89,7 @@
                        method: :delete, data: {confirm: t('supervisor.indicator_metrics.delete')},
                        id: "delete_#{im.id}",
                        class: 'button alert float-right tiny hollow' do %>
-                         <span class="icon-delete"></span>
+                         <span class="icon-trash-o"></span>
                          <%= t('actions.delete') %>
                        <% end %>
           <% end %>

@@ -8,8 +8,8 @@
   <div class="small-12 columns">
     <% if @source.amount_uses == 0%>
         <div class="small-12 medium-2 columns">
-          <%= link_to("", admin_source_path(@source), method: :delete, data: { confirm: 'Are you sure?' },
-                      class: "icon-square-o", title: t('admin.sources.index.destroy')) %>
+          <%= link_to("", admin_source_path(@source), method: :delete, data: { confirm: '¿Desea eliminar esta fuente?' },
+                      class: "icon-x-circle", title: t('admin.sources.index.destroy')) %>
         </div>
     <% end %>
     <div class="small-12 medium-2 columns">
