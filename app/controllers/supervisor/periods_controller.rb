@@ -18,6 +18,7 @@ class Supervisor::PeriodsController < Supervisor::BaseController
     @period = Period.new(period_params)
     @period.updated_by = current_user.login
     if @period.save
+      @period.create_activity :create, owner: current_user, parameters: params[:period]
       if params[:period][:id].empty?
         msg = t('supervisor.periods.create.success.no_processes_copy')
       else
@@ -39,6 +40,7 @@ class Supervisor::PeriodsController < Supervisor::BaseController
     @period.assign_attributes(period_params)
     @period.updated_by = current_user.login
     if @period.update(period_params)
+      @period.create_activity :update, owner: current_user, parameters: params[:period]
       redirect_to supervisor_periods_path, notice: t('supervisor.periods.update.success')
     else
       render 'edit'
@@ -46,6 +48,7 @@ class Supervisor::PeriodsController < Supervisor::BaseController
   end
 
   def destroy
+    @period.create_activity :destroy, owner: current_user, parameters: params[]
     if @period.destroy
       msg = t('supervisor.periods.destroy.success')
     else
@@ -62,6 +65,4 @@ class Supervisor::PeriodsController < Supervisor::BaseController
     def find_period
       @period = Period.find(params[:id])
     end
-
-
 end

@@ -1,4 +1,7 @@
 class AssignedEmployee < ActiveRecord::Base
+  include PublicActivity::Common
+#  tracked owner: ->(controller, model) { controller && controller.current_user }
+
   resourcify
   belongs_to :staff_of, polymorphic: true
   belongs_to :official_group
@@ -43,6 +46,10 @@ class AssignedEmployee < ActiveRecord::Base
       end
     end
     return message
+  end
+
+  def description
+      official_group.description
   end
 
   def self.staff_quantity(type, unit_id)

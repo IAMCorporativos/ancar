@@ -63,6 +63,9 @@ gem 'spreadsheet', '~> 1.1', '>= 1.1.2'
 # Create beautiful Javascript charts with one line of Ruby
 gem "chartkick"
 
+# Easy activity tracking for models
+gem 'public_activity'
+
 # Wicked PDF uses the shell utility wkhtmltopdf to serve a PDF file to a user from HTML.
 gem 'wicked_pdf'
 

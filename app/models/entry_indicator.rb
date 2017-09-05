@@ -1,4 +1,7 @@
 class EntryIndicator < ActiveRecord::Base
+  include PublicActivity::Common
+#  tracked owner: ->(controller, model) { controller && controller.current_user }
+
   resourcify
 #  has_many :entry_indicator_sources
 
@@ -51,4 +54,8 @@ class EntryIndicator < ActiveRecord::Base
      source.include?(self.indicator_metric.indicator_sources.take.source.id.to_s)
   end
 
+  def description
+    indicator_metric.indicator.item.description + '/' + indicator_metric.metric.item.description + ', ' +
+        indicator_metric.indicator.period.description + ', ' + unit.description_sap
+  end
 end

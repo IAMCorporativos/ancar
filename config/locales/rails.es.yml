@@ -54,6 +54,8 @@ es:
     - :month
     - :year
   datetime:
+    formats:
+      short: "%d/%m/%Y - %H:%M:%S"
     distance_in_words:
       about_x_hours:
         one: alrededor de 1 hora

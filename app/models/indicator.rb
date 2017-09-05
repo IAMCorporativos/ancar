@@ -1,4 +1,7 @@
 class Indicator < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user }
+
   resourcify
   has_many :indicator_sources, :dependent => :destroy
   has_many :indicator_metrics, :dependent => :destroy

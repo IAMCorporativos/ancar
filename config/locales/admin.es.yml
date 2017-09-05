@@ -16,6 +16,7 @@ es:
       users: "Usuarios"
       group:
         units: "Organizaciones"
+      activities: "Actividades"
     organizations:
       index:
         title: Organizaciones
@@ -188,3 +189,24 @@ es:
             JD: Juntas de Distrito
         general:
           title: "Parámetros globales"
+    activities:
+      index:
+        entries: "Entradas"
+  activities:
+    index:
+      date: "Fecha"
+      user: "Usuario"
+      trackable_type: "Objeto"
+      trackable_id: "Id."
+      trackable_description: "Descripción"
+      key: "Acción"
+      parameters: "Parámetros"
+      recipient_type: "Tipo recipiente"
+      recipient_id: "Id. de recipiente"
+      class:
+        Period: Periodo
+        MainProcess: Procesos/BloqueCompetencial
+        SubProcess: SubProcesos/Proceso
+        Indicator: Indicador/Tarea
+        IndicatorMetric: Métrica/Indicador
+

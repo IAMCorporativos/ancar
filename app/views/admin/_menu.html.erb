@@ -46,6 +46,13 @@
       <% end %>
     </li>
 
+    <li id="activities" <%= 'class=active' if controller_name == 'activities' %>>
+      <%= link_to admin_activities_path do %>
+          <span class="icon-eye"></span>
+          <%= t('admin.menu.activities') %>
+      <% end %>
+    </li>
+
     <li id="stats" <%= 'class=active' if controller_name == 'stats' %>>
       <%= link_to admin_root_path do %>
         <span class="icon-chart-bar"></span>

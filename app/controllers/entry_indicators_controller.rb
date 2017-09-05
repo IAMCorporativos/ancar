@@ -12,10 +12,13 @@ class EntryIndicatorsController < ApplicationController
   def updates
     if params[:cancel_change].present?
       cancel_change(@period.id, @unit.id)
+      @entry_indicators.create_activity :cancel_change_staff, owner: current_user
     elsif params[:open_change].present?
       open_change(@period.id, @unit.id, current_user)
+      @entry_indicators.create_activity :open_change_staff, owner: current_user
     elsif params[:approval].present?
       approval
+      @entry_indicators.create_activity :approval_unit, owner: current_user
     else
       update_entry
     end
@@ -158,6 +161,9 @@ class EntryIndicatorsController < ApplicationController
 
         if amount.empty?
           delete_entry_indicators(@unit.id, indicator_metric_id)
+          ei = EntryIndicator.find_by_indicator_metric_id(im[0].to_i)
+          ei.create_activity :delete, owner: current_user,
+                                            parameters: {indicator_metric: indicator_metric_id, entry_indicator: im[0].to_i, period_id: @period.id, unit_id: @unit.id} unless ei.nil?
           @entry_indicators_cumplimented = false
         else
           ei = EntryIndicator.find_or_create_by(unit_id: @unit.id, indicator_metric_id: indicator_metric_id)
@@ -168,6 +174,8 @@ class EntryIndicatorsController < ApplicationController
             ei.period_id = @period.id
             ei.updated_by = current_user.login
             ei.save
+            ei.create_activity :update, owner: current_user,
+                                              parameters: {indicator_metric: indicator_metric_id, entry_indicator: ei.id, amount: ei.amount.to_s, period_id: @period.id, unit_id: @unit.id}
           end
         end
       end
@@ -226,9 +234,13 @@ class EntryIndicatorsController < ApplicationController
           delete_assigned_employee(official_group_id, type, process_id, @period.id, @unit.id)
         else
           ae = set_assigned_employee(official_group_id, type, process_id, @period.id, @unit.id)
-          ae.quantity = quantity
-          ae.updated_by = current_user.login
-          ae.save
+          if ae.quantity != quantity.to_f
+            ae.quantity = quantity
+            ae.updated_by = current_user.login
+            ae.save
+            ae.create_activity :update, owner: current_user,
+                                            parameters: {official_group_id: type, quantity: ae.quantity.to_s, period_id: @period.id, unit_id: @unit.id}
+          end
         end
       end
     end
