@@ -95,7 +95,7 @@ es:
             admin: Administrador
             interlocutor: Interlocutor de organización
             no_name: ""
-        add_role: "Añadir rol"
+        add_role: "Seleccionar rol"
         title: "Añadir permisos al usuario"
         remove_resource: "-"
         no_role: "Este usuario no tiene asignado ningún rol"
@@ -140,8 +140,8 @@ es:
         error: "Error añadiendo el rol"
         success: "Se ha añadido el rol"
       add_resource:
-        resource: "Añadir permisos a unidad"
-        organization_type: "Añadir permisos por tipo de organización"
+        resource: "Organización"
+        organization_type: "Tipo de organización"
     shared:
       in_works: "¡¡¡¡ Página en CONSTRUCCIÓN !!!!"
     entry_indicators:
