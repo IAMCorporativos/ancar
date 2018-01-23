@@ -106,4 +106,6 @@ group :development do
   gem 'jazz_hands', :git => 'https://github.com/nixme/jazz_hands.git', branch: 'bring-your-own-debugger'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'rubocop', '~> 0.52.1', require: false
+  gem 'rubocop-rspec', '~> 1.22.1', require: false
 end
