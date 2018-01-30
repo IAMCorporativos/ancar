@@ -106,6 +106,7 @@ es:
         success: El registro se ha actualizado correctamente.
     menu:
       periods: Configurar Periodos
+      unit_statuses: "Situación de entrada de datos"
     periods:
       create:
         error:
@@ -128,6 +129,7 @@ es:
         organization_type: Organización
         period: Periodo a copiar
         started_at: Inicio
+        hide_status: "Ocultar resumen de entrada de datos"
       index:
         button:
           create: Crear un periodo
@@ -229,3 +231,11 @@ es:
         title: Indicador
       update:
         success: El registro se ha actualizado correctamente.
+    unit_statuses:
+      index:
+        unit: "Unidad"
+        approval: "Visto Bueno"
+        change_employees: "Cambio de plantilla"
+        action:
+          show: "Detalle de  la  unidad"
+        title: "Situación de entrada de datos"
