@@ -13,6 +13,7 @@ class Supervisor::UnitStatusesController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_supervisor_unit_statuses
       @supervisor_unit_statuses = UnitStatus.new(params[:id])
@@ -23,6 +24,6 @@ class Supervisor::UnitStatusesController < ApplicationController
       @supervisor_unit_statuses = UnitStatus.new(params[:id])
       @supervisor_unit_statuses.create(params[:unit_id])
       @supervisor_unit_status = @supervisor_unit_statuses.unit_statuses.first
-   end
+    end
 
 end

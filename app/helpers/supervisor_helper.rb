@@ -1,5 +1,4 @@
 module SupervisorHelper
-
   def side_menu
     render "/#{namespace}/menu"
   end
@@ -110,5 +109,4 @@ module SupervisorHelper
     def namespace
       controller.class.parent.name.downcase
     end
-
 end
