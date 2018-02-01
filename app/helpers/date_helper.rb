@@ -1,7 +1,6 @@
 module DateHelper
-
-  def format_date(d, format= :default)
-    return d unless (d.is_a? Date)
+  def format_date(d, format = :default)
+    return d unless d.is_a? Date
     I18n.localize(d, format: format.to_sym)
   end
 
@@ -13,5 +12,4 @@ module DateHelper
   def parse_date(date)
     date
   end
-
 end
