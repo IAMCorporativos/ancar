@@ -83,6 +83,10 @@ module AppHelper
     end
   end
 
+  def login_to_full_name(login)
+    User.find_by(login: login).try(:full_name)
+  end
+
   def resources_select_options(user, class_name)
     grouped_resources = {}
     grouped_resources[' '] = ['Selecciona el ambito de autorización', '']

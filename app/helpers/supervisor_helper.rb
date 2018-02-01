@@ -90,11 +90,11 @@ module SupervisorHelper
   end
 
   def supervisor_get_employee_change(id)
-    @employee_change ||=  AssignedEmployeesChange.find(id) if id.present?
+    @employee_change ||=  AssignedEmployeesChange.find(id) if id.present? && id > 0
   end
 
   def supervisor_get_approval(id)
-    @approval ||=  Approval.find(id) if id.present?
+    @approval ||=  Approval.find(id) if id.present?  && id > 0
   end
 
   def change_id?(id)

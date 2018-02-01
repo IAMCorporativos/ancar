@@ -10,6 +10,7 @@
       <tr>
         <th> </th>
         <th><%= t('supervisor.unit_statuses.index.unit') %> </th>
+        <th><%= t('supervisor.unit_statuses.index.validation') %></th>
         <th><%= t('supervisor.unit_statuses.index.change_employees') %></th>
         <th><%= t('supervisor.unit_statuses.index.approval') %></th>
         <th>Acciones</th>
@@ -26,25 +27,33 @@
             </td>
             <td colspan="3" class="subheader" title="<%=
               "Organization_#{unit_status[:organization_id]}" %>">
-              <% if @supervisor_unit_statuses.noOks(unit_status[:organization_id]) == 0 %>
-                <span class="alert-warning">Todas las unidades tienen el VºBº</span>
+              <% if @supervisor_unit_statuses.noks(unit_status[:organization_id]) > 0 %>
+                <span class="text-center nok">
+                  <%= t('supervisor.unit_statuses.index.no_ok',
+                        number: @supervisor_unit_statuses.noks(unit_status[:organization_id])) %>
+                </span>
               <% else %>
-                 Falta el V.B en
-                <span class="text-center">
-                  <%= @supervisor_unit_statuses.noOks(unit_status[:organization_id]) %>
-                </span> unidades
+                <span class="ok"><%= t('supervisor.unit_statuses.index.ok') %></span>
               <% end %>
             </td>
           </tr>
         <% end %>
         <tr>
           <td> </td>
-          <td class="indicator-metric" title="<%= "Unit_#{unit_status[:unit_id]}" %>"><%=
-            unit_status[:unit_description] %></td>
-          <td title="<%= "EmployeeChange_#{unit_status[:employees_change_id]}" %>"><%=
-            unit_status[:employees_change_at] %>  <%= unit_status[:employees_change_by] %></td>
-          <td title="<%= "Approval_#{unit_status[:approval_id]}" %>"><%=
-            unit_status[:approval_at] %></td>
+          <td class="indicator-metric" title="<%= "Unit_#{unit_status[:unit_id]}" %>">
+            <%= unit_status[:unit_description] %>
+          </td>
+          <td></td>
+          <td title="<%= "#{login_to_full_name(unit_status[:employees_change_by])}
+          Id_#{unit_status[:employees_change_id]}" %>">
+            <%= format_date(unit_status[:employees_change_at]) %>
+            <%= unit_status[:employees_change_by] %>
+          </td>
+          <td title="<%= "#{login_to_full_name(unit_status[:approval_by])}
+          Id_#{unit_status[:approval_id]}" %>">
+            <%= format_date(unit_status[:approval_at]) %>
+            <%= unit_status[:approval_by] %>
+          </td>
           <td>
             <%= link_to("", supervisor_unit_status_path(id: @supervisor_unit_statuses
                 .period.id, unit_id: unit_status[:unit_id]),

@@ -8,29 +8,36 @@
     </h4>
   </div>
 </div>
+
 <div class="row">
-  <div class="small-12 columns">
-    <table>
+  <div class="small-12 columns ">
+    <br>
+    <table class="unit-status-show">
       <caption title="<%= "#{@supervisor_unit_status[:unit_id]}" %>">
-        <h5> <%= "#{@supervisor_unit_status[:unit_description]}"%></h5>
+        <h5 class="text-left" > <%= "#{@supervisor_unit_status[:unit_description]}"%></h5>
       </caption>
       <tr>
-        <th>Cambio de plantilla</th>
-        <% if supervisor_get_employee_change(@supervisor_unit_status[:employees_changed_id]).present? %>
-          <td><%= @employee_change.justified_at %> - <%= @employee_change.justified_by %> </td>
-        <% else %>
-          <td> No se ha realizado ninguno para esta unidad </td>
-        <% end %>
+        <th class="hide-to-print"></th>
+        <th class="text-left"><%= t('supervisor.unit_statuses.show.validation') %> </th>
+        <td class="text-left"> <%= render 'validation' %> </td>
       </tr>
       <tr>
-        <th>Visto Bueno</th>
-        <% if supervisor_get_approval(@supervisor_unit_status[:approval_id]).present? %>
-          <td><%= @approval.approval_at %> - <%= @approval.approval_by %> </td>
-        <% else %>
-          <td> Esta unidad no ha recibido el Visto Bueno  </td>
-        <% end %>
+        <th class="hide-to-print"></th>
+        <th class="text-left"><%= t('supervisor.unit_statuses.show.change') %> </th>
+        <td>
+          <%= render 'employees_change',
+                     change: @supervisor_unit_status[:employees_change_id],
+                     period: @supervisor_unit_statuses.period,
+                     organization_description:
+                         @supervisor_unit_status[:organization_description],
+                     unit_id: @supervisor_unit_status[:unit_id] %>
+        </td>
+      </tr>
+      <tr>
+        <th class="hide-to-print"></th>
+        <th class="text-left"><%= t('supervisor.unit_statuses.show.ok') %> </th>
+        <td  class="text-left"> <%= render 'approval' %> </td>
       </tr>
     </table>
   </div>
-
 </div>

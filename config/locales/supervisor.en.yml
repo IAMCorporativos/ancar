@@ -106,6 +106,7 @@ en:
         success: El registro se ha actualizado correctamente.
     menu:
       periods: Configurar Periodos
+      unit_statuses: Situación de entrada de datos
     periods:
       create:
         error:
@@ -124,11 +125,11 @@ en:
         dates: Periodo de los datos
         description: Descripción
         ended_at: Fin
+        hide_status: Ocultar resumen de entrada de datos
         opened_at: Inicio
         organization_type: Organización
         period: Periodo a copiar
         started_at: Inicio
-        hide_status: Ocultar resumen de entrada de datos
       index:
         button:
           create: Crear un periodo
@@ -232,9 +233,18 @@ en:
         success: El registro se ha actualizado correctamente.
     unit_statuses:
       index:
-        unit: "Unidad"
-        approval: "Visto Bueno"
-        change_employees: "Cambio de plantilla"
         action:
-          show: "Detalle de  la  unidad"
-        title: "Situación de entrada de datos"
+          show: Detalle de  la  unidad
+        approval: Visto Bueno
+        change_employees: Cambio de plantilla
+        no_ok: Falta el V.B en %{number} unidades
+        ok: Todas las unidades tienen el VºBº
+        title: Situación de entrada de datos
+        unit: Unidad
+        validation: Última validación
+      show:
+        change: Cambio de plantilla
+        no_change: No se ha realizado cambio de plantilla para esta unidad
+        no_validation: No se han validado los datos
+        ok: Visto Bueno
+        validation: Última validación

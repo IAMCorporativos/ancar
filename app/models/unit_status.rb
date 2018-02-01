@@ -54,19 +54,19 @@ class UnitStatus
     @unit_statatuses.count
   end
 
-  def noOks(organization_id)
-    @noOks ||= self.unit_statuses.select{|u| ( (u[:organization_id] == organization_id) &&
-        (u[:approval_at].is_a? Date)) }.count
+  def noks(organization_id)
+    @oks = self.unit_statuses.select{|u| ( (u[:organization_id] == organization_id) &&
+        !(u[:approval_at].is_a? Date)) }.count
   end
 
   private
 
   def approval(period_id, unit_id)
-    @approval ||= Approval.find_by(period_id: period_id, unit_id: unit_id)
+    @approval = Approval.find_by(period_id: period_id, unit_id: unit_id)
   end
 
   def employees_change(period_id, unit_id)
-    @employees_change ||= AssignedEmployeesChange.find_by(period_id: period_id, unit_id: unit_id)
+    @employees_change = AssignedEmployeesChange.find_by(period_id: period_id, unit_id: unit_id)
   end
 
 end
