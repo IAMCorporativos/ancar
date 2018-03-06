@@ -37,8 +37,8 @@ en:
         add_resource: Añadir recurso
         delete: Eliminar rol
       add_resource:
-        organization_type: Añadir permisos por tipo de organización
-        resource: Añadir permisos a unidad
+        organization_type: Tipo de organización
+        resource: Organización
       add_role:
         error: Error añadiendo el rol
         resource: Añadir ámbito
@@ -176,7 +176,7 @@ en:
       new:
         title: Alta de usuario
       roles:
-        add_role: Añadir rol
+        add_role: Seleccionar rol
         no_role: Este usuario no tiene asignado ningún rol
         remove_resource: "-"
         role:
@@ -205,4 +205,4 @@ en:
         error: Error actualizando los datos del usuario
         success: Datos del usuario actualizados correctamente
   subnavigation_menu:
-    assign_rpt: Inicializar rpt
+    assign_rpt: Asignar rpt
