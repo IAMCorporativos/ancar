@@ -626,4 +626,38 @@ table#admin-indicator-metric {
   color:blue;
 }
 
+.server-error{
+  color: gray;
+
+  &.title{
+    margin-top: rem-calc(50);
+    font-size: rem-calc(100);
+    font-weight: bold;
+    text-align: center;
+    font-style: revert;
+  }
+
+  &.subtitle{
+    margin-top: rem-calc(50);
+    font-size: rem-calc(60);
+    color: gray;
+    font-weight: bold;
+    text-align: center;
+    font-style: revert;
+  }
+
+  &.data-group{
+    border: 1px solid $cobalto;
+    margin-top: rem-calc(30);
+    font-size: rem-calc(20);
+  }
+  &.data-name{
+    text-align: left;
+  }
+
+  &.data-content{
+    color: black;
+  }
+
+}
 

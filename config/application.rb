@@ -51,6 +51,8 @@ module Ancar
 
     config.middleware.use "WickedPdf::Middleware", :print_media_type => true
 
+    config.exceptions_app = self.routes
+
   end
 
 end
