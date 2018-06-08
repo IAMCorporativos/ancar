@@ -1,0 +1,57 @@
+<div class="small-12 columns server-error data-group">
+  <h4>Datos del error</h4>
+
+  <div class="small-12 columns">
+    <div class="small-6 medium-3 columns server-error data-name ">
+      Usuario conectado:
+    </div>
+
+    <div class="small-6 medium-8 columns end server-error data-content ">
+      <%= current_user.full_name + ' - ' + current_user.login if current_user.present? %>
+    </div>
+  </div>
+
+  <div class="small-12 columns server-error">
+    <div class="small-6 medium-3 columns server-error data-name ">
+      Pagina:
+    </div>
+    <div class="small-6 medium-8 columns end server-error data-content ">
+      <%= @request_path %>
+    </div>
+  </div>
+
+  <div class="small-12 columns server-error">
+    <div class="small-6 medium-3 columns server-error data-name ">
+      Ruta:
+    </div>
+    <div class="small-6 medium-8 columns end server-error data-content ">
+      <%= @request_uri %>
+    </div>
+  </div>
+
+  <div class="small-12 columns server-error">
+    <div class="small-6 medium-3 columns server-error data-name ">
+      Fecha:
+    </div>
+    <div class="small-6 medium-8 columns end server-error data-content ">
+      <%= l Time.now  %>
+    </div>
+  </div>
+</div>
+
+<div clas="row">
+  <div class="small-12 columns data-name">
+    <br><br>
+    <h4>Puedes volver a la página anterior <%= link_to image_tag("volver.svg", width: "25"), 'javascript:history.go(-1);'  %>
+      o ir a la pagina de inicio <%=link_to image_tag("home.svg", width: "35"), root_path, size: 16 %> </h4>
+    <br>
+    <h5>Si el error sigue produciendose envía un correo a: <br><br>
+      <span class="text-center">
+        <%= mail_to 'IAM - Análisis de Cargas de Trabajo de Distritos y SGTs <iamancardistritossgt@madrid.es>',
+                    'IAM - Análisis de Cargas de Trabajo de Distritos y SGTs'%>
+      </span>
+      <br><br>indicando la acción que estabas realizando y los datos del error que aparecen en esta pantalla. </h5>
+  </div>
+
+</div>
+

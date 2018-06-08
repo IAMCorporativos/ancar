@@ -42,6 +42,10 @@ class ApplicationController < ActionController::Base
      end
   end
 
+  def local_request?
+    false
+  end
+
   private
     def verify_user
       raise ActionController::RoutingError.new('Not Found') unless current_user.present?

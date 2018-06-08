@@ -5,12 +5,16 @@ Rails.application.routes.draw do
     mount RailsAdmin::Engine => '/console', as: 'rails_admin'
     mount Sidekiq::Web => '/sidekiq'
 #  end
+# The priority is based upon order of creation: first created -> highest priority.
+# See how all your routes lay out with "rake routes".
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+
+  get "/404", :to => "errors#error_404"
+  get "/422", :to => "errors#error_422"
+  get "/500", :to => "errors#error_500"
 
   get 'sign_in', to: 'sessions#create', as: :sign_in
   resource :session, only: [:create, :destroy]
